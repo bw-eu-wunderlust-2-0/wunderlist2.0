@@ -2,7 +2,7 @@
 ## This is the documentation for the Wunderlist 2.0 Build Week project
 
 This project was built with Node Express and is currently deployed on Heroku at [https://wunderlist-2.herokuapp.com/](https://wunderlist-2.herokuapp.com/).
-The documentation can also be found at [Apidocs generated documenation](wunderlist2.surge.sh).
+The documentation can also be found at [Apidocs generated documenation](http://wunderlist2.surge.sh).
 
 The following dependencies were used:
 - Node
