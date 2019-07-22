@@ -30,9 +30,9 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
 	const todo = req.body;
 	try {
-		if (!todo.title || !todo.task || !todo.setDate) {
+		if (!todo.title || !todo.task || !todo.setDate || !todo.user_id) {
 			res.status(400).json({
-				message : 'Your Todo needs a title, task and setDate',
+				message : 'Please fill out all required fields.',
 			});
 		}
 		const newTodo = await db.create(todo);
