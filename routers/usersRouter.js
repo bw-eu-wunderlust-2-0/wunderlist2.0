@@ -8,7 +8,7 @@ router.get('/:id', async (req, res) => {
 		const user = await db.findById(id);
 		if (user) {
 			const { password, ...rest } = user;
-			res.status(200).json(rest);
+			res.status(200).json(...rest);
 		} else {
 			res.status(404).json({ message: 'User with specified ID does not exist.' });
 		}
@@ -40,7 +40,7 @@ router.put('/:id', async (req, res) => {
 		const editedUser = await db.update(user, id);
 		if (editedUser) {
 			const { password, ...rest } = editedUser;
-			res.status(200).json(rest);
+			res.status(200).json(...rest);
 		} else {
 			res.status(404).json({
 				message : 'The user with the specified ID does not exist.',
