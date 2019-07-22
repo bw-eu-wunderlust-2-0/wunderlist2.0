@@ -16,7 +16,6 @@ async function find() {
 
 async function findById(id) {
 	const user = await db('users').where({ 'users.id': id }).first();
-	const { password, ...rest } = user;
 	return rest;
 }
 
