@@ -8,8 +8,8 @@ module.exports = {
 	update,
 };
 
-async function find() {
-	const todos = await db('todos');
+async function find(id) {
+	const todos = await db('todos').where({ user_id: id });
 	return todos;
 }
 

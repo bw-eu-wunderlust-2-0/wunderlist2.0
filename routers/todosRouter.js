@@ -3,8 +3,9 @@ const router = require('express').Router();
 const db = require('../data/helpers/todos-model.js');
 
 router.get('/', async (req, res) => {
+	const id = req.userId
 	try {
-		const todos = await db.find();
+		const todos = await db.find(id);
 		if (todos) {
 			res.status(200).json(todos);
 		}
@@ -29,8 +30,10 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
 	const todo = req.body;
+	todo.user_id = req.userId
+	todo.setDate = "tomorrow"
 	try {
-		if (!todo.title || !todo.task || !todo.setDate || !todo.user_id) {
+		if (!todo.title || !todo.task || !todo.setDate) {
 			res.status(400).json({
 				message : 'Please fill out all required fields.',
 			});
